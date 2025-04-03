@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->unsigned()->nullable(false);
             $table->string('nome', 100)->nullable(false);
-            $table->string('cpf', 15)->nullable(false);
-            $table->string('email', 150)->nullable(false);
+            $table->string('cpf', 15)->nullable(false)->unique();
+            $table->string('email', 150)->nullable(false)->unique();
             $table->string('password', 255)->nullable(false);
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

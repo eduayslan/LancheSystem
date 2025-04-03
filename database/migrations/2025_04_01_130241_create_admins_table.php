@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->unsigned()->nullable(false);
             $table->string('nome', 100)->nullable(false);
+            $table->string('cpf', 11)->unique()->nullable(false);
             $table->string('email', 150)->nullable(false);
             $table->string('password', 255)->nullable(false);
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

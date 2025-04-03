@@ -13,6 +13,6 @@ class Funcionario extends Model
         'nome',
         'cpf',
         'email',
-        'password'
+        'password',
     ];
 }

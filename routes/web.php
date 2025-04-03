@@ -5,6 +5,6 @@ use App\Models\Admin;
 use App\Models\Cliente;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/cadastro/cliente', Cliente::class);
+
 
 Route::get('/login', Login::class);
